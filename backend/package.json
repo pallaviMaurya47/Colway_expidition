@@ -1,0 +1,27 @@
+{
+  "name": "travelor-go",
+  "version": "1.0.0",
+  "description": "travelor book their journey ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aashwit2023/Travelor-Go.git"
+  },
+  "keywords": [
+    "travelor",
+    "mountains"
+  ],
+  "author": "aashwit gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aashwit2023/Travelor-Go/issues"
+  },
+  "homepage": "https://github.com/Aashwit2023/Travelor-Go#readme",
+  "dependencies": {
+    "dotenv": "^17.2.4",
+    "express": "^5.2.1"
+  }
+}

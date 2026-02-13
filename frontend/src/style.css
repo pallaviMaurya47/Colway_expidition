@@ -1,0 +1,924 @@
+
+/* This is the main CSS file for the TravelX website, defining styles for all components and layouts. Connected to all JSX files for styling, and index.html for global application styles. */
+
+/* Universal reset for all elements to ensure consistent styling across browsers. */
+* {
+  margin: 0; /* Removes default margin from all elements. */
+  padding: 0; /* Removes default padding from all elements. */
+  box-sizing: border-box; /* Includes padding and border in element's total width and height. */
+  font-family: 'Playfair Display', serif; /* Sets default font family for the entire site. */
+}
+
+/* Body styles for the overall page background and text. */
+body {
+  background: #ffffff; /* Sets white background for the page. */
+  color: #333; /* Sets default text color to dark gray. */
+  line-height: 1.6; /* Sets line height for better readability. */
+}
+
+/* Link styles to remove underline and inherit color. */
+a {
+  text-decoration: none; /* Removes underline from links. */
+  color: inherit; /* Links inherit color from parent element. */
+}
+
+/* Container class for centering content with max width. */
+.container {
+  width: 90%; /* Sets width to 90% of parent. */
+  max-width: 1200px; /* Limits max width to 1200px. */
+  margin: auto; /* Centers the container horizontally. */
+}
+
+/* Navigation bar styles */
+.nav { /* Main navigation bar container, fixed at top of page. */
+  background: #1a365d; /* Dark blue background color. */
+  padding: 20px 0; /* Vertical padding for spacing. */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Subtle shadow for depth. */
+  position: fixed; /* Fixed positioning at top of viewport. */
+  top: 0; /* Aligns to top of page. */
+  width: 100%; /* Full width of viewport. */
+  z-index: 1000; /* High z-index to stay above other content. */
+}
+
+.nav-content { /* Flex container for nav items. */
+  display: flex; /* Flexbox layout. */
+  justify-content: space-between; /* Space between logo and links. */
+  align-items: center; /* Vertical center alignment. */
+}
+
+.nav h1, .nav h2 { /* Logo/brand name styling. */
+  color: white; /* White color for brand. */
+  font-size: 1.8rem; /* Large font size. */
+  font-weight: 700; /* Bold weight. */
+}
+
+.links a { /* Navigation link styles. */
+  margin-left: 20px; /* Left margin for spacing. */
+  color: white; /* White text color. */
+  font-weight: 500; /* Medium font weight. */
+  transition: color 0.3s ease; /* Smooth color transition on hover. */
+}
+
+.links a:hover { /* Hover state for nav links. */
+  color: #ffd700; /* Changes to gold on hover. */
+}
+
+.links .btn { /* Sign up button in nav. */
+  background: #ffd700; /* Gold background. */
+  padding: 10px 20px; /* Padding for button size. */
+  border-radius: 25px; /* Rounded corners. */
+  color: #1a365d; /* Dark blue text. */
+  font-weight: 600; /* Semi-bold weight. */
+  transition: all 0.3s ease; /* Smooth transition for all properties. */
+}
+
+.links .btn:hover { /* Hover state for sign up button. */
+  background: #ffed4e; /* Lighter gold on hover. */
+  transform: translateY(-1px); /* Slight upward movement. */
+}
+
+/* Hamburger menu styles */
+.hamburger { /* Hamburger button styling. */
+  display: none; /* Hidden by default (shown on mobile). */
+  flex-direction: column; /* Stack bars vertically. */
+  cursor: pointer; /* Pointer cursor. */
+  background: none; /* No background. */
+  border: none; /* No border. */
+  padding: 5px; /* Small padding. */
+}
+
+.bar { /* Individual bar styling. */
+  width: 25px; /* Width of bars. */
+  height: 3px; /* Height of bars. */
+  background: white; /* White color. */
+  margin: 3px 0; /* Vertical margin. */
+  transition: 0.3s; /* Smooth transition. */
+}
+
+/* Dropdown menu styles */
+.dropdown { /* Container for dropdown menu. */
+  position: relative; /* Positioning context for dropdown. */
+  display: inline-block; /* Inline block for proper alignment. */
+}
+
+.dropdown-toggle { /* Styles for dropdown toggle button. */
+  cursor: pointer; /* Pointer cursor on hover. */
+  color: white; /* White text color. */
+  font-weight: 500; /* Medium font weight. */
+  transition: color 0.3s ease; /* Smooth color transition. */
+}
+
+.dropdown-toggle:hover { /* Hover state for dropdown toggle. */
+  color: #ffd700; /* Gold color on hover. */
+}
+
+.dropdown-menu { /* Styles for dropdown menu. */
+  display: none; /* Hidden by default. */
+  position: absolute; /* Absolute positioning. */
+  background: #1a365d; /* Dark blue background. */
+  min-width: 160px; /* Minimum width. */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Shadow for depth. */
+  z-index: 1001; /* High z-index to appear above other content. */
+  border-radius: 5px; /* Rounded corners. */
+}
+
+.dropdown:hover .dropdown-menu { /* Show dropdown on hover. */
+  display: block; /* Display dropdown. */
+}
+
+.dropdown-menu a { /* Styles for dropdown links. */
+  color: white; /* White text color. */
+  padding: 12px 16px; /* Padding for links. */
+  text-decoration: none; /* Remove underline. */
+  display: block; /* Block display for full width. */
+  transition: background 0.3s ease; /* Smooth background transition. */
+}
+
+.dropdown-menu a:hover { /* Hover state for dropdown links. */
+  background: #2d3748; /* Darker background on hover. */
+}
+
+.hero {
+  height: 100vh;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+    linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5)),
+    url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover, cover, cover, cover;
+  background-position: center, center, center, center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><filter id="smoke"><feTurbulence baseFrequency="0.01" numOctaves="5" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="10"/></filter></defs><rect width="100%" height="100%" filter="url(%20smoke)" opacity="0.1"/></svg>');
+  pointer-events: none;
+}
+
+.overlay {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.overlay button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: #ff7a18;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Explore by Theme */
+.explore-theme {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.explore-theme h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #1a365d;
+}
+
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.theme-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
+}
+
+.theme-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255,215,0,0.1), rgba(26,54,93,0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.theme-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.theme-card:hover::before {
+  opacity: 1;
+}
+
+.theme-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.theme-card h3 {
+  padding: 20px;
+  font-size: 1.5rem;
+  color: #1a365d;
+  margin: 0;
+}
+
+.theme-card p {
+  padding: 0 20px 20px;
+  color: #666;
+  font-family: 'Lato', sans-serif;
+}
+
+/* Why Travelers Choose Us */
+.why-choose-us {
+  padding: 80px 0;
+  background: white;
+}
+
+.why-choose-us h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #294162;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.reason-card {
+  text-align: center;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.reason-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,215,0,0.05), rgba(26,54,93,0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.reason-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.reason-card:hover::before {
+  opacity: 1;
+}
+
+.reason-card .icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.reason-card h3 {
+  font-size: 1.3rem;
+  color: #1a365d;
+  margin-bottom: 15px;
+}
+
+.reason-card p {
+  color: #666;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+}
+
+/* Featured Destinations */
+.featured-destinations {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.featured-destinations h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #1a365d;
+}
+
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.destination-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+}
+
+.destination-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(26,54,93,0.1), rgba(255,215,0,0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.2);
+}
+
+.destination-card:hover::before {
+  opacity: 1;
+}
+
+.destination-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.destination-card h3 {
+  padding: 20px 20px 10px;
+  font-size: 1.5rem;
+  color: #1a365d;
+  margin: 0;
+}
+
+.destination-card p {
+  padding: 0 20px 20px;
+  color: #666;
+  font-family: 'Lato', sans-serif;
+}
+
+/* Stories From Travelers */
+.stories {
+  padding: 80px 0;
+  background: white;
+}
+
+.stories h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #1a365d;
+}
+
+.stories-slider {
+  overflow: hidden;
+  width: 100%;
+}
+
+.stories-track {
+  display: flex;
+  animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.story-card {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  min-width: 400px;
+  margin-right: 30px;
+  transition: transform 0.3s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-5px);
+}
+
+.story-card {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.story-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.story-card p {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 15px;
+  font-family: 'Lato', sans-serif;
+}
+
+.story-card cite {
+  color: #1a365d;
+  font-weight: 600;
+}
+
+/* Team Showcase */
+.team {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.team h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #1a365d;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.team-member {
+  text-align: center;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.team-member::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(26,54,93,0.05), rgba(255,215,0,0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.team-member:hover::before {
+  opacity: 1;
+}
+
+.team-member img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.team-member h3 {
+  font-size: 1.3rem;
+  color: #1a365d;
+  margin-bottom: 10px;
+}
+
+.team-member p {
+  color: #666;
+  font-family: 'Lato', sans-serif;
+}
+
+/* Footer */
+.footer {
+  background: #1a365d;
+  color: white;
+  padding: 50px 0 20px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.footer-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #ffd700;
+}
+
+.footer-section h4 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #ffd700;
+}
+
+.footer-section p {
+  margin-bottom: 10px;
+  font-family: 'Lato', sans-serif;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #ffd700;
+}
+
+.footer-bottom {
+  border-top: 1px solid #2d3748;
+  padding-top: 20px;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hamburger { /* Show hamburger on mobile. */
+    display: flex; /* Flex display. */
+  }
+
+  .links { /* Hide links by default on mobile. */
+    display: none; /* Hidden. */
+    position: absolute; /* Absolute positioning. */
+    top: 100%; /* Below navbar. */
+    left: 0; /* Align to left. */
+    width: 100%; /* Full width. */
+    background: #1a365d; /* Dark blue background. */
+    flex-direction: column; /* Stack links vertically. */
+    padding: 20px 0; /* Vertical padding. */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Shadow. */
+  }
+
+  .links.open { /* Show links when open. */
+    display: flex; /* Flex display. */
+  }
+
+  .links a { /* Style links in mobile menu. */
+    margin: 10px 20px; /* Margin for spacing. */
+    padding: 10px 0; /* Vertical padding. */
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Subtle border. */
+  }
+
+  .hero {
+    height: 80vh;
+    background-attachment: scroll;
+  }
+
+  .overlay h1 {
+    font-size: 2rem;
+  }
+
+  .overlay p {
+    font-size: 1.1rem;
+  }
+
+  .explore-theme h2,
+  .why-choose-us h2,
+  .featured-destinations h2,
+  .stories h2,
+  .team h2 {
+    font-size: 1.8rem;
+  }
+
+  .theme-grid,
+  .destinations-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-card {
+    min-width: 300px;
+  }
+
+  .nav {
+    padding: 15px 0;
+  }
+
+  .nav h1, .nav h2 {
+    font-size: 1.5rem;
+  }
+
+  .links a {
+    margin-left: 15px;
+    font-size: 0.9rem;
+  }
+
+  .links .btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+  }
+
+  .overlay h1 {
+    font-size: 1.8rem;
+  }
+
+  .overlay p {
+    font-size: 1rem;
+  }
+
+  .story-card {
+    min-width: 280px;
+    padding: 20px;
+  }
+
+  .theme-card img,
+  .destination-card img {
+    height: 150px;
+  }
+}
+
+.auth {
+  max-width: 400px;
+  margin: 80px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.auth h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.auth p {
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+.auth input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.auth input:focus {
+  outline: none;
+  border-color: #ff7a18;
+}
+
+.auth textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: vertical;
+}
+
+.auth textarea:focus {
+  outline: none;
+  border-color: #ff7a18;
+}
+
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.remember-forgot label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.remember-forgot input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.auth button {
+  padding: 12px;
+  background: #ff7a18;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.auth button:hover {
+  background: #e66a15;
+}
+
+.auth p:last-child {
+  text-align: center;
+  margin: 0;
+  font-size: 14px;
+}
+
+.auth a {
+  color: #ff7a18;
+  text-decoration: none;
+}
+
+.auth a:hover {
+  text-decoration: underline;
+}
+
+.terms {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.terms label {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.terms input[type="checkbox"] {
+  margin-right: 8px;
+  margin-top: 2px;
+}
+
+.slider {
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* User Data Form Styles */
+.user-data-form {
+  max-width: 600px;
+  margin: 100px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Playfair Display', serif;
+}
+
+.user-data-form h2 {
+  margin-bottom: 15px;
+  color: #1a365d;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.user-data-form p {
+  margin-bottom: 30px;
+  color: #666;
+  font-size: 16px;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+
+.user-data-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-data-form input,
+.user-data-form select,
+.user-data-form textarea {
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+.user-data-form input:focus,
+.user-data-form select:focus,
+.user-data-form textarea:focus {
+  outline: none;
+  border-color: #ff7a18;
+  box-shadow: 0 0 0 2px rgba(255, 122, 24, 0.2);
+}
+
+.user-data-form select {
+  background: white;
+  cursor: pointer;
+}
+
+.user-data-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.user-data-form button {
+  padding: 15px;
+  background: linear-gradient(135deg, #ff7a18, #e66a15);
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.user-data-form button:hover {
+  background: linear-gradient(135deg, #e66a15, #cc5a12);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 122, 24, 0.3);
+}
+
+.privacy-note {
+  margin-top: 25px;
+  font-size: 14px;
+  color: #888;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+
+/* Responsive Design for User Data Form */
+@media (max-width: 768px) {
+  .user-data-form {
+    margin: 80px 20px;
+    padding: 30px 20px;
+  }
+
+  .user-data-form h2 {
+    font-size: 1.8rem;
+  }
+
+  .user-data-form p {
+    font-size: 14px;
+  }
+}
