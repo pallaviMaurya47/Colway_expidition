@@ -13,7 +13,7 @@
 
   export default function Home() {
     const themes = [
-          { 
+          {
             image: adventure,
             title: "Adventure",
             description: "Thrilling expeditions for the bold explorer."
@@ -29,6 +29,7 @@
             description: "Epic trails through the world's most stunning landscapes."
           }
         ];
+        
 
     const Destination = [
           {

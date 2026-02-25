@@ -2,3 +2,6 @@ backend/.env
 backend/node_modules
 frontend/node_modules
 frontend/TODO.md
+frontend/.env
+/package-lock.json
+/node_modules

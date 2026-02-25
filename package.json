@@ -1,0 +1,16 @@
+{
+  "name": "colwayexpedition",
+  "version": "1.0.0",
+  "description": "A modern travel and trekking expedition booking platform built with the MERN stack (MongoDB, Express, React, Node.js). Travelor-Go allows users to explore exciting trekking destinations, book expeditions, and connect with the travel community.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently --names \"BACKEND,FRONTEND\" --prefix-colors \"cyan,magenta\" \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "backend": "npm run dev --prefix backend",
+    "frontend": "npm run dev --prefix frontend"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

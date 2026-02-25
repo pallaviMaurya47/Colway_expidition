@@ -1,23 +1,22 @@
-
-// This is the Signup component for the TravelX website, providing a form for user registration. Connected to src/App.jsx for routing, and src/style.css for styling.
 import { Link } from 'react-router-dom' 
 import { useState } from 'react'
-
 
 export default function Signup() {
 
   const [user, setUser] = useState({
-    fullname: "",
+    firstname: "",
+    lastname: "",
     email: "",
-    password : "",
-    // cnfm_passwrod: "",
-     
+    password: "",
+    cnfm_password: ""
   });
 
-  console.log(user) // Print the data
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
   // handling the Input values
   const handleInput = (e) => {
-    console.log(e);
     let name = e.target.name;
     let value = e.target.value;
     
@@ -28,30 +27,87 @@ export default function Signup() {
   }
 
   // Handling the form submit
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Thank you for choosing us.");
+    setError("");
+    setSuccess("");
+
+    if (user.password !== user.cnfm_password) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/signUp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstname: user.firstname,
+          lastname: user.lastname,
+          email: user.email,
+          password: user.password,
+          cnfmPassword: user.cnfm_password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccess(data.message || "Account created successfully!");
+        setUser({
+          firstname: "",
+          lastname: "",
+          email: "",
+          password: "",
+          cnfm_password: ""
+        });
+      } else {
+        setError(data.message || "Signup failed. Please try again.");
+      }
+      alert("Thank you for choosing us.");
+    } catch (error) {
+      setError("An error occurred. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   }
   return (
-    <form onSubmit = {handleSubmit}>
+    <form onSubmit={handleSubmit}>
     <div className="auth"> 
       <h2>Join TravelX</h2>
       <p>Create your account to start exploring amazing destinations.</p> 
-      <input type="text" placeholder="Full Name" 
-        name="fullname"
-        value={user.fullname}
+
+      {error && <p style={{ color: "#ff4d4d", fontSize: "14px", margin: "8px 0" }}>{error}</p>}
+      {success && <p style={{ color: "#4dff88", fontSize: "14px", margin: "8px 0" }}>{success}</p>}
+
+      <input type="text" placeholder="First Name" 
+        name="firstname"
+        value={user.firstname}
         onChange={handleInput}
         required /> 
+
+      <input type="text" placeholder="Last Name" 
+        name="lastname"
+        value={user.lastname}
+        onChange={handleInput}
+        required />
+
       <input type="email" placeholder="Email" 
         name="email"
         value={user.email}
         onChange={handleInput}
         required /> 
+      
       <input type="password" placeholder="Password" 
         name="password"
         value={user.password}
         onChange={handleInput}
         required /> 
+      
       <input type="password" placeholder="Confirm Password" 
         name="cnfm_password"
         value={user.cnfm_password}
@@ -63,7 +119,7 @@ export default function Signup() {
           I agree to the <Link to=" /terms "> Terms and Conditions </Link> and <Link to=" /privacy "> Privacy Policy</Link> 
         </label> 
       </div> 
-      <button>Create Account</button> 
+      <button disabled={loading}>{loading ? "Creating Account..." : "Create Account"}</button>
       <p>Already have an account? <Link to="/login">Login here</Link></p>
     </div>
     </form>

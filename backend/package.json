@@ -1,7 +1,8 @@
 {
-  "name": "travelor-go",
+  "name": "colway_expedition_backend",
   "version": "1.0.0",
-  "description": "travelor book their journey ",
+  "description": "travelor book their journey",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -23,8 +24,12 @@
   "homepage": "https://github.com/Aashwit2023/Travelor-Go#readme",
   "dependencies": {
     "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
     "dotenv": "^17.2.4",
     "express": "^5.2.1",
     "mongoose": "^9.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }

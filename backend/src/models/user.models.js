@@ -1,4 +1,4 @@
-import mongoose from 'monggoose';
+import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
     firstname: {
@@ -21,13 +21,8 @@ const userSchema = new mongoose.Schema({
     cnfmPassword: {
         type: String,
         required: true
-    },
-    gender: {
-        type: String,
-        enum: ['Male', 'Female', 'Other'],
-        required: true
-    },
-}, {timespamps: true});
+    }
+}, {timestamps: true});
 
 const User = mongoose.model("User", userSchema);
 export default User;
