@@ -147,7 +147,7 @@ export default function UserDataForm() {
             </div>
 
             <div className="phone-box">
-              <label>Whatsapp Number</label>
+              <label>Whatsapp Number<span className="required">*</span></label>
               <PhoneInput
                 country={"in"}
                 enableSearch={true}
@@ -184,7 +184,7 @@ export default function UserDataForm() {
           </div>
 
           {/* Experience */}
-          <label>Do you have previous trekking experience?</label>
+          <label>Do you have previous trekking experience?<span className="required">*</span></label>
 
           <div className='checkbox-group'>
             <label className="checkbox-line">
@@ -224,7 +224,7 @@ export default function UserDataForm() {
           </div>
 
           {/* Month */}
-          <label>Which month are you planning for?</label>
+          <label>Which month are you planning for?<span className="required">*</span></label>
           <input type="month" name="month" />
 
           {/* Region */}
@@ -278,7 +278,7 @@ export default function UserDataForm() {
 
           <div className="slots">
             <label>
-              Please choose a time slot based on your availabilty
+              Please choose a time slot based on your availabilty<span className="required">*</span>
             </label>
             <select name="slots" required>
               <option value="">Select slots</option>
