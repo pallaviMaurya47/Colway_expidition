@@ -3,7 +3,9 @@ import trekking1 from '../assets/trekking1.jpg';
 import trekking2 from '../assets/trekking2.jpg';
 import trekking33 from '../assets/trekking33.jpg';
 
-const trekImages = [trekking1, trekking2, trekking33];
+import Cards from './Trekking_cards/Cards';
+
+const trekImages = [trekking2,trekking1,  trekking33];
 
 export default function Trekking() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -29,8 +31,12 @@ export default function Trekking() {
         <div className="slideshow-overlay" />
       </div>
       
-      <div className="trekking-content" style={{ marginTop: '100px' }}>
+      <div className="trekking-content" style={{
+         marginTop: '100px',
+         marginLeft:'25px'
+          }}>
         <h2>Trekking</h2>
+        <hr style={{ width: '15%'}}/>
         <p>Embark on thrilling trekking adventures in the mountains.</p>
         <p>Experience the beauty of nature with our guided treks.</p>
       </div>
@@ -79,13 +85,10 @@ export default function Trekking() {
         .trekking-content {
           position: relative;
           z-index: 1;
-          text-align: center;
+          text-align: relative;
           padding: 40px 20px;
           color: white;
-          z-index: 1;
-          text-align: center;
-          padding: 40px 20px;
-          color: white;
+          
           font-family: Arial, sans-serif;
         }
 
@@ -101,6 +104,10 @@ export default function Trekking() {
           text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
       `}</style>
+
+      
+         <Cards heading="Choose the Trek" />
+      
     </div>
   );
 }
