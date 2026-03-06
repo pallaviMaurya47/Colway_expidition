@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import trekking1 from '../assets/trekking1.jpg';
 import trekking2 from '../assets/trekking2.jpg';
-import trekking3 from '../assets/trekking3.jpg';
+import trekking33 from '../assets/trekking33.jpg';
 
-const trekImages = [trekking1, trekking2, trekking3];
+const trekImages = [trekking1, trekking2, trekking33];
 
 export default function Trekking() {
   const [currentSlide, setCurrentSlide] = useState(0);
