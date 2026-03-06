@@ -3,7 +3,17 @@ import trekking1 from '../assets/trekking1.jpg';
 import trekking2 from '../assets/trekking2.jpg';
 import trekking33 from '../assets/trekking33.jpg';
 
-import Cards from './Trekking_cards/Cards';
+import Trekking_cards from './Trekking_cards/Trekking_cards';
+import adventure from "../assets/adventure.jpg";
+import culture from "../assets/culture.jpg";
+import trekking from "../assets/Trekking.jpg";
+import baliPassCamp from "../assets/bali_pass.jpg";
+import everest_base_camp from "../assets/everest_base_camp.jpg";
+import frndship from "../assets/friendship_peak.jpg";
+
+import Trekking_info1 from './Trekking_cards/Trekking_info1'
+
+
 
 const trekImages = [trekking2,trekking1,  trekking33];
 
@@ -17,6 +27,74 @@ export default function Trekking() {
 
     return () => clearInterval(interval);
   }, []);
+
+  const themes = [
+                {
+                  image: adventure,
+                  days:"6 days",
+                  difficulty:"moderate",
+                  title: "Adventure",
+                  description: "Thrilling expeditions for the bold explorer.",
+                  trekking_info:Trekking_info1
+                },
+                {
+                  image: culture,
+                  days:"8 days",
+                  difficulty:"moderate-difficult",
+                  title: "Cultural Immersion",
+                  description: "Dive deep into local traditions and heritage."
+                },
+                {
+                  image: trekking,
+                  days:"9 days",
+                  difficulty:"difficult",
+                  title: "Trekking",
+                  description: "Epic trails through the world's most stunning landscapes."
+                },
+                {
+                  image: baliPassCamp,
+                  days:"7 days",
+                  difficulty:"moderate-difficult",
+                  title: "cmp_Adventure",
+                  description: "Thrilling expeditions for the bold explorer."
+                },
+                {
+                  image: everest_base_camp,
+                  days:"9 days",
+                  difficulty:"difficult",
+                  title: "everest_base_camp",
+                  description: "Dive deep into local traditions and heritage."
+                },
+                {
+                  image: frndship,
+                  days:"8 days",
+                  difficulty:"moderate",
+                  title: "Trekking",
+                  description: "Epic trails through the world's most stunning landscapes."
+                },
+                {
+                  image: baliPassCamp,
+                  days:"5 days",
+                  difficulty:"moderate",
+                  title: "cmp_Adventure",
+                  description: "Thrilling expeditions for the bold explorer."
+                },
+                {
+                  image: everest_base_camp,
+                  days:"6 days",
+                  difficulty:"moderate",
+                  title: "everest_base_camp",
+                  description: "Dive deep into local traditions and heritage."
+                },
+                {
+                  image: frndship,
+                  days:"8 days",
+                  difficulty:"moderate",
+                  title: "Trekking",
+                  description: "Epic trails through the world's most stunning landscapes."
+                }
+              ];
+  
 
   return (
     <div className="trekking-container">
@@ -36,7 +114,7 @@ export default function Trekking() {
          marginLeft:'25px'
           }}>
         <h2>Trekking</h2>
-        <hr style={{ width: '15%'}}/>
+        <hr style={{ width: '15%',height:'0.25rem',background:'orange'}}/>
         <p>Embark on thrilling trekking adventures in the mountains.</p>
         <p>Experience the beauty of nature with our guided treks.</p>
       </div>
@@ -106,7 +184,7 @@ export default function Trekking() {
       `}</style>
 
       
-         <Cards heading="Choose the Trek" />
+      <Trekking_cards items={themes} heading="Choose the Trek" />
       
     </div>
   );
