@@ -1,7 +1,6 @@
+@tailwind utilities;
+@import "tailwindcss";
 
-/* This is the main CSS file for the TravelX website, defining styles for all components and layouts. Connected to all JSX files for styling, and index.html for global application styles. */
-
-/* Universal reset for all elements to ensure consistent styling across browsers. */
 * {
   margin: 0; /* Removes default margin from all elements. */
   padding: 0; /* Removes default padding from all elements. */
@@ -24,14 +23,14 @@ a {
 
 /* Container class for centering content with max width. */
 .container {
-  width: 90%; /* Sets width to 90% of parent. */
-  max-width: 1200px; /* Limits max width to 1200px. */
-  margin: auto; /* Centers the container horizontally. */
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
 }
 
 /* Navigation bar styles */
 .nav { /* Main navigation bar container, fixed at top of page. */
-  background: #1a365d; /* Dark blue background color. */
+  background: #1b365c; /* Dark blue background color. */
   padding: 20px 0; /* Vertical padding for spacing. */
   box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Subtle shadow for depth. */
   position: fixed; /* Fixed positioning at top of viewport. */
@@ -40,11 +39,11 @@ a {
   z-index: 1000; /* High z-index to stay above other content. */
 }
 
-.nav-content { /* Flex container for nav items. */
-  display: flex; /* Flexbox layout. */
-  justify-content: space-between; /* Space between logo and links. */
-  align-items: center; /* Vertical center alignment. */
-}
+/* .nav-content {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+} */
 
 .nav h1, .nav h2 { /* Logo/brand name styling. */
   color: white; /* White color for brand. */
@@ -548,6 +547,7 @@ a {
 .auth {
   max-width: 400px;
   margin: 80px auto;
+  margin-top: 100px;
   background: white;
   padding: 30px;
   border-radius: 10px;
@@ -669,16 +669,6 @@ a {
   transition: opacity 0.5s ease-in-out;
 }
 
-/* Responsive User data form */
-
-.page-wrapper {
-  min-height: 100vh;
-  background: #FEF3C7;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
 .callback-form {
   max-width: 600px;
   margin: 100px auto;
@@ -754,7 +744,7 @@ label {
   border: 1px solid #ccc !important;
   border-radius: 4px !important;
   font-size: 14px !important;
-  padding-left: 60px !important;
+  padding-left: 42px !important;
 }
 
 /*country Flag dropdown button */
@@ -809,11 +799,11 @@ label {
 
 
 .checkbox-row {
-  display: flex;
-  justify-content: space-between;  /*  equal spacing in each option across full width */
+  display: flex;  /*  equal spacing in each option across full width */
   width: 100%;
   margin-top: 0;
   margin-bottom: 15px;
+  flex-direction: column;
 }
 
 .checkbox-item {
@@ -900,17 +890,4 @@ select {
 .callback-form button:hover {
   background: #e66a15;
 }
-/* @media (max-width: 768px) {
-  .user-data-form {
-    margin: 80px 20px;
-    padding: 30px 20px;
-  }
 
-  .user-data-form h2 {
-    font-size: 1.8rem;
-  }
-
-  .user-data-form p {
-    font-size: 14px;
-  }
-} */
