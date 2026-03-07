@@ -65,7 +65,6 @@ export default function Signup() {
       alert("Thank you for choosing us.");
     } catch (error) {
       console.error(error);
-      setError("An error occurred. Please try again later.");
     } finally {
       setLoading(false);
     }

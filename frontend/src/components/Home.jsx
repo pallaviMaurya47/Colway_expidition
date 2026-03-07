@@ -8,9 +8,6 @@
   import everest_base_camp from "../assets/everest_base_camp.jpg";
   import frndship from "../assets/friendship_peak.jpg";
 
-
-
-
   export default function Home() {
     const themes = [
           {
