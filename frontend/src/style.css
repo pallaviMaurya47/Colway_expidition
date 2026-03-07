@@ -677,6 +677,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 .callback-form {
   max-width: 600px;
